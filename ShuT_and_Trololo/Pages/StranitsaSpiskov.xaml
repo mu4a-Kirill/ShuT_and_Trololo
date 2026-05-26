@@ -1,14 +1,150 @@
 ﻿<Page x:Class="ShuT_and_Trololo.Pages.StranitsaSpiskov"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:ShuT_and_Trololo.Pages"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="StranitsaSpiskov">
+      Background="#1E1E2E">
 
-    <Grid>
-        
+    <Page.Resources>
+        <Style TargetType="Button" x:Key="BtnFiolet">
+            <Setter Property="Background" Value="#7C3AED"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="12,7"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#6D28D9"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="Button" x:Key="BtnSer">
+            <Setter Property="Background" Value="#3D3D5F"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="10,6"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#4D4D6F"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="TextBox" x:Key="PolPoiska">
+            <Setter Property="Background" Value="#2D2D3F"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="#7C3AED"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Padding" Value="8,6"/>
+            <Setter Property="CaretBrush" Value="White"/>
+        </Style>
+
+        <Style TargetType="ComboBox" x:Key="StilCombo">
+            <Setter Property="Background" Value="#2D2D3F"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="#7C3AED"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Padding" Value="6,5"/>
+        </Style>
+
+        <!-- Стиль вкладок TabItem -->
+        <Style TargetType="TabItem">
+            <Setter Property="Background" Value="#2D2D3F"/>
+            <Setter Property="Foreground" Value="#A78BFA"/>
+            <Setter Property="Padding" Value="16,8"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="#7C3AED"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
+
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <TextBlock Grid.Row="0" Text="Мои списки книг"
+                   FontSize="24" FontWeight="Bold"
+                   Foreground="#C4B5FD" Margin="0,0,0,16"/>
+
+        <!-- Панель поиска и фильтров -->
+        <Grid Grid.Row="1" Margin="0,0,0,16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="160"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="160"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="80"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox x:Name="txtPoisk" Grid.Column="0"
+                     Style="{StaticResource PolPoiska}"
+                     Text="Поиск по названию или автору..."
+                     Foreground="#888"
+                     GotFocus="txtPoisk_GotFocus"
+                     LostFocus="txtPoisk_LostFocus"
+                     TextChanged="txtPoisk_TextChanged"/>
+
+            <ComboBox x:Name="cbZhanr" Grid.Column="2"
+                      Style="{StaticResource StilCombo}"
+                      SelectionChanged="cbZhanr_SelectionChanged"/>
+
+            <ComboBox x:Name="cbSortir" Grid.Column="4"
+                      Style="{StaticResource StilCombo}"
+                      SelectionChanged="cbSortir_SelectionChanged">
+                <ComboBoxItem Content="По названию (А-Я)" Tag="name_asc"/>
+                <ComboBoxItem Content="По названию (Я-А)" Tag="name_desc"/>
+                <ComboBoxItem Content="По оценке (выше)" Tag="rate_desc"/>
+                <ComboBoxItem Content="По оценке (ниже)" Tag="rate_asc"/>
+            </ComboBox>
+
+            <Button Grid.Column="6" Content="Сброс"
+                    Style="{StaticResource BtnFiolet}"
+                    Click="btnSbros_Click"/>
+        </Grid>
+
+        <!-- Вкладки списков -->
+        <TabControl x:Name="tabSpiskov" Grid.Row="2"
+                    Background="#1E1E2E"
+                    BorderBrush="#3D3D5F"
+                    SelectionChanged="tabSpiskov_SelectionChanged">
+
+            <TabItem Header="📚 В планах" Tag="2">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <WrapPanel x:Name="panelVPlanah" Orientation="Horizontal" Margin="8"/>
+                </ScrollViewer>
+            </TabItem>
+
+            <TabItem Header="📖 Читаю" Tag="3">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <WrapPanel x:Name="panelChtenie" Orientation="Horizontal" Margin="8"/>
+                </ScrollViewer>
+            </TabItem>
+
+            <TabItem Header="✅ Прочитано" Tag="4">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <WrapPanel x:Name="panelProchitano" Orientation="Horizontal" Margin="8"/>
+                </ScrollViewer>
+            </TabItem>
+
+            <TabItem Header="🚫 Заброшено" Tag="1">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <WrapPanel x:Name="panelZabrosil" Orientation="Horizontal" Margin="8"/>
+                </ScrollViewer>
+            </TabItem>
+
+        </TabControl>
     </Grid>
 </Page>
