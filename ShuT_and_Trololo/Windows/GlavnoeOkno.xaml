@@ -1,0 +1,89 @@
+﻿<Window x:Class="ShuT_and_Trololo.Windows.GlavnoeOkno"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Читай, Пиши и не спиши®"
+        WindowState="Maximized"
+        MinWidth="800" MinHeight="600"
+        Background="#1E1E2E">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Background="#13131F"
+                    VerticalAlignment="Stretch">
+
+            <Button x:Name="btnSideKatalog" Width="50" Height="50"
+                    Margin="5,10,5,2" Background="Transparent"
+                    BorderThickness="0" Cursor="Hand"
+                    Click="btnSideKatalog_Click"
+                    ToolTipService.ShowDuration="5000">
+                <Button.ToolTip>
+                    <ToolTip Content="Каталог книг"/>
+                </Button.ToolTip>
+                <Image Source="/Resources/Images/icon_catalog.png"/>
+            </Button>
+
+            <Button x:Name="btnSideSpisok" Width="50" Height="50"
+                    Margin="5,2" Background="Transparent"
+                    BorderThickness="0" Cursor="Hand"
+                    Click="btnSideSpisok_Click">
+                <Button.ToolTip>
+                    <ToolTip Content="Мои списки книг"/>
+                </Button.ToolTip>
+                <Image Source="/Resources/Images/icon_lists.png"/>
+            </Button>
+
+            <Button x:Name="btnSideAvtor" Width="50" Height="50"
+                    Margin="5,2" Background="Transparent"
+                    BorderThickness="0" Cursor="Hand"
+                    Visibility="Collapsed"
+                    Click="btnSideAvtor_Click">
+                <Button.ToolTip>
+                    <ToolTip Content="Страница автора"/>
+                </Button.ToolTip>
+                <Image Source="/Resources/Images/icon_author.png"/>
+            </Button>
+
+            <Button x:Name="btnSideAdmin" Width="50" Height="50"
+                    Margin="5,2" Background="Transparent"
+                    BorderThickness="0" Cursor="Hand"
+                    Visibility="Collapsed"
+                    Click="btnSideAdmin_Click">
+                <Button.ToolTip>
+                    <ToolTip Content="Администрирование"/>
+                </Button.ToolTip>
+                <Image Source="/Resources/Images/icon_admin.png"/>
+            </Button>
+
+            <Button x:Name="btnSideZamorozka" Width="50" Height="50"
+                    Margin="5,2" Background="Transparent"
+                    BorderThickness="0" Cursor="Hand"
+                    Visibility="Collapsed"
+                    Click="btnSideZamorozka_Click">
+                <Button.ToolTip>
+                    <ToolTip Content="⚠ Аккаунт заморожен"/>
+                </Button.ToolTip>
+                <Image Source="/Resources/Images/icon_freeze.png"/>
+            </Button>
+
+            <Button x:Name="btnSideProfil" Width="50" Height="50"
+                    Margin="5,2" Background="Transparent"
+                    BorderThickness="0" Cursor="Hand"
+                    VerticalAlignment="Bottom"
+                    Click="btnSideProfil_Click">
+                <Button.ToolTip>
+                    <ToolTip Content="Мой профиль"/>
+                </Button.ToolTip>
+                <Image Source="/Resources/Images/icon_profile.png.png"/>
+            </Button>
+
+        </StackPanel>
+
+        <Frame x:Name="mainFrame" Grid.Column="1"
+               NavigationUIVisibility="Hidden"/>
+
+    </Grid>
+</Window>
