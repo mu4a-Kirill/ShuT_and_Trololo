@@ -15,6 +15,7 @@ namespace ShuT_and_Trololo.Windows
             Width = 300; Height = 260;
             Title = "Добавить в список";
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            Owner = Application.Current.MainWindow; // ← ВОТ ЭТО ДОБАВИТЬ
             Background = new System.Windows.Media.SolidColorBrush(
                 (System.Windows.Media.Color)System.Windows.Media.ColorConverter
                     .ConvertFromString("#1E1E2E"));

@@ -104,8 +104,10 @@ namespace ShuT_and_Trololo.Pages
                     (Color)ColorConverter.ConvertFromString("#2D2D3F"));
 
             border.MouseLeftButtonUp += (s, e) =>
-                NavigationService.Navigate(
-                    new StranitsaKnigi(kniga.BookId));
+            {
+                if (e.OriginalSource is Button) return; 
+                NavigationService.Navigate(new StranitsaKnigi(kniga.BookId));
+            };
 
             var stack = new StackPanel();
 
@@ -183,7 +185,6 @@ namespace ShuT_and_Trololo.Pages
                 Cursor = Cursors.Hand
             };
 
-            btnSpisok.PreviewMouseLeftButtonUp += (s, e) => e.Handled = true;
             btnSpisok.Click += (s, e) => DobavitVSpisok(kniga);
 
             stack.Children.Add(img);

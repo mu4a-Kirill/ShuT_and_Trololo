@@ -49,7 +49,6 @@
             <Setter Property="Padding" Value="6,5"/>
         </Style>
 
-        <!-- Стиль вкладок TabItem -->
         <Style TargetType="TabItem">
             <Setter Property="Background" Value="#2D2D3F"/>
             <Setter Property="Foreground" Value="#A78BFA"/>
@@ -72,12 +71,10 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- Заголовок -->
         <TextBlock Grid.Row="0" Text="Мои списки книг"
                    FontSize="24" FontWeight="Bold"
                    Foreground="#C4B5FD" Margin="0,0,0,16"/>
 
-        <!-- Панель поиска и фильтров -->
         <Grid Grid.Row="1" Margin="0,0,0,16">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -115,7 +112,6 @@
                     Click="btnSbros_Click"/>
         </Grid>
 
-        <!-- Вкладки списков -->
         <TabControl x:Name="tabSpiskov" Grid.Row="2"
                     Background="#1E1E2E"
                     BorderBrush="#3D3D5F"

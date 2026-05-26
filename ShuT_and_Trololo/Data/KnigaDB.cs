@@ -166,25 +166,38 @@ namespace ShuT_and_Trololo.Data
             using (var soed = BazaDannih.GetSoединение())
             {
                 string sql = @"
-                    SELECT b.BookId, b.Title, b.Description, b.CoverPath,
-                           b.AuthorId, b.IsFrozen,
-                           u.DisplayName AS AutorImya,
-                           ISNULL(AVG(CAST(r.Rating AS FLOAT)), 0) AS SredOtsenka
-                    FROM Books b
-                    JOIN Users u ON b.AuthorId = u.UserId
-                    LEFT JOIN Reviews r ON b.BookId = r.BookId
-                    WHERE b.BookId = @id
-                    GROUP BY b.BookId, b.Title, b.Description,
-                             b.CoverPath, b.AuthorId, b.IsFrozen, u.DisplayName";
+            SELECT b.BookId, b.Title, b.Description, b.CoverPath,
+                   b.Content,
+                   b.AuthorId, b.IsFrozen,
+                   u.DisplayName AS AutorImya,
+                   ISNULL(AVG(CAST(r.Rating AS FLOAT)), 0) AS SredOtsenka
+            FROM Books b
+            JOIN Users u ON b.AuthorId = u.UserId
+            LEFT JOIN Reviews r ON b.BookId = r.BookId
+            WHERE b.BookId = @id
+            GROUP BY b.BookId, b.Title, b.Description,
+                     b.CoverPath, b.Content, b.AuthorId, b.IsFrozen, u.DisplayName";
 
                 var cmd = new SqlCommand(sql, soed);
                 cmd.Parameters.AddWithValue("@id", bookId);
                 var reader = cmd.ExecuteReader();
 
                 if (reader.Read())
-                    return ChitatKnigu(reader);
+                {
+                    return new Kniga
+                    {
+                        BookId = (int)reader["BookId"],
+                        Title = reader["Title"].ToString(),
+                        Description = reader["Description"] as string,
+                        CoverPath = reader["CoverPath"] as string,
+                        Content = reader["Content"] as string,  // ← здесь читаем
+                        AuthorId = (int)reader["AuthorId"],
+                        AutorImya = reader["AutorImya"].ToString(),
+                        IsFrozen = (bool)reader["IsFrozen"],
+                        SrednyayaOtsenka = (double)reader["SredOtsenka"]
+                    };
+                }
             }
-
             return null;
         }
 

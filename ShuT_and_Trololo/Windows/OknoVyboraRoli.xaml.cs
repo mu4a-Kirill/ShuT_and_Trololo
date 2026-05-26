@@ -15,6 +15,7 @@ namespace ShuT_and_Trololo.Windows
             Width = 300; Height = 260;
             Title = "Назначить роль";
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            Owner = Application.Current.MainWindow;
             Background = new System.Windows.Media.SolidColorBrush(
                 (System.Windows.Media.Color)System.Windows.Media.ColorConverter
                     .ConvertFromString("#1E1E2E"));

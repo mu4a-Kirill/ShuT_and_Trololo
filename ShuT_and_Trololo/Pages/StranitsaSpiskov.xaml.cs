@@ -108,7 +108,10 @@ namespace ShuT_and_Trololo.Pages
                     (Color)ColorConverter.ConvertFromString("#2D2D3F"));
 
             border.MouseLeftButtonUp += (s, e) =>
+            {
+                if (e.OriginalSource is Button) return;
                 NavigationService.Navigate(new StranitsaKnigi(kniga.BookId));
+            };
 
             var stack = new StackPanel();
 
@@ -173,7 +176,6 @@ namespace ShuT_and_Trololo.Pages
                 Cursor = Cursors.Hand
             };
 
-            btnPerem.PreviewMouseLeftButtonUp += (s, e) => e.Handled = true;
             btnPerem.Click += (s, e) => OtkrytMenuPeremescheniya(kniga, tekSectionId);
 
             stack.Children.Add(img);

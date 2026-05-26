@@ -15,6 +15,7 @@ namespace ShuT_and_Trololo.Windows
             Width = 340; Height = 220;
             Title = "Сменить пароль";
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            Owner = Application.Current.MainWindow;
             Background = new System.Windows.Media.SolidColorBrush(
                 (System.Windows.Media.Color)System.Windows.Media.ColorConverter
                     .ConvertFromString("#1E1E2E"));
