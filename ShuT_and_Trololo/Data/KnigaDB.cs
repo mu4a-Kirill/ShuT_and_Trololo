@@ -202,5 +202,16 @@ namespace ShuT_and_Trololo.Data
                 SrednyayaOtsenka = (double)reader["SredOtsenka"]
             };
         }
+        public static string GetNazvanieKnigi(int bookId)
+        {
+            using (var soed = BazaDannih.GetSoединение())
+            {
+                var cmd = new SqlCommand(
+                    "SELECT Title FROM Books WHERE BookId = @id", soed);
+                cmd.Parameters.AddWithValue("@id", bookId);
+                var result = cmd.ExecuteScalar();
+                return result?.ToString() ?? "Неизвестная книга";
+            }
+        }
     }
 }

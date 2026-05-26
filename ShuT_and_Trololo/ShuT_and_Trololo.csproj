@@ -165,6 +165,7 @@
     <Compile Include="Data\KnigaDB.cs" />
     <Compile Include="Data\OtzyvDB.cs" />
     <Compile Include="Data\SpisokDB.cs" />
+    <Compile Include="Data\ZayavkaDB.cs" />
     <Compile Include="Data\ZhalobaDB.cs" />
     <Compile Include="Pages\StranitsaAdmina.xaml.cs">
       <DependentUpon>StranitsaAdmina.xaml</DependentUpon>
