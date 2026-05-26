@@ -162,6 +162,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\AvtorDB.cs" />
     <Compile Include="Data\KnigaDB.cs" />
     <Compile Include="Data\OtzyvDB.cs" />
     <Compile Include="Data\SpisokDB.cs" />
@@ -190,6 +191,9 @@
     </Compile>
     <Compile Include="Windows\OknoChtenia.xaml.cs">
       <DependentUpon>OknoChtenia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\OknoRedaktirovaniyaKnigi.xaml.cs">
+      <DependentUpon>OknoRedaktirovaniyaKnigi.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\OknoVhoda.xaml.cs">
       <DependentUpon>OknoVhoda.xaml</DependentUpon>
@@ -244,6 +248,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\OknoChtenia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\OknoRedaktirovaniyaKnigi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
