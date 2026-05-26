@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace ShuT_and_Trololo.Models
 {
-    internal class Zhanr
+    public class Zhanr
     {
+        public int GenreId { get; set; }
+        public string GenreName { get; set; }
+        public string Description { get; set; }
     }
 }
