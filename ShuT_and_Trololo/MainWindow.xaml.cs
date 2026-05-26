@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShuT_and_Trololo.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,17 @@ namespace ShuT_and_Trololo
         public MainWindow()
         {
             InitializeComponent();
+            try
+            {
+                using (var soed = BazaDannih.GetSoединение())
+                {
+                    MessageBox.Show("Подключение к БД успешно!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка подключения: " + ex.Message);
+            }
         }
     }
 }
