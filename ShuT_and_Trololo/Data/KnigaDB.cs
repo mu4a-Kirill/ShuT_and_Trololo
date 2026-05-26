@@ -68,6 +68,44 @@ namespace ShuT_and_Trololo.Data
             return spisok;
         }
 
+        public static List<Zhanr> GetZhanryKnigi(int bookId)
+        {
+            var spisok = new List<Zhanr>();
+
+            using (var soed = BazaDannih.GetSoединение())
+            {
+                var cmd = new SqlCommand(@"
+            SELECT g.GenreId, g.GenreName
+            FROM Genres g
+            JOIN BookGenres bg ON g.GenreId = bg.GenreId
+            WHERE bg.BookId = @bid", soed);
+
+                cmd.Parameters.AddWithValue("@bid", bookId);
+                var reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    spisok.Add(new Zhanr
+                    {
+                        GenreId = (int)reader["GenreId"],
+                        GenreName = reader["GenreName"].ToString()
+                    });
+                }
+            }
+
+            return spisok;
+        }
+                public static void ZamorozitKnigu(int bookId)
+        {
+            using (var soed = BazaDannih.GetSoединение())
+            {
+                var cmd = new SqlCommand(
+                    "UPDATE Books SET IsFrozen = 1 WHERE BookId = @id", soed);
+                cmd.Parameters.AddWithValue("@id", bookId);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
         public static List<Kniga> PoZhanru(int zhanrId)
         {
             var spisok = new List<Kniga>();

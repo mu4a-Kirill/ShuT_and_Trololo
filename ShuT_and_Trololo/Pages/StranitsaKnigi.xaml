@@ -1,14 +1,171 @@
 ﻿<Page x:Class="ShuT_and_Trololo.Pages.StranitsaKnigi"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:ShuT_and_Trololo.Pages"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="StranitsaKnigi">
+      Background="#1E1E2E">
 
-    <Grid>
-        
-    </Grid>
+    <Page.Resources>
+        <Style TargetType="Button" x:Key="BtnFiolet">
+            <Setter Property="Background" Value="#7C3AED"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="12,7"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#6D28D9"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="Button" x:Key="BtnKrasn">
+            <Setter Property="Background" Value="#DC2626"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="10,6"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#B91C1C"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="Button" x:Key="BtnSer">
+            <Setter Property="Background" Value="#3D3D5F"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="10,6"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#4D4D6F"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="30">
+
+            <Button Content="← Назад" HorizontalAlignment="Left"
+                    Style="{StaticResource BtnSer}"
+                    Margin="0,0,0,20"
+                    Click="btnNazad_Click"/>
+
+            <Grid Margin="0,0,0,24">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0" CornerRadius="8"
+                        Background="#2D2D3F" Height="280">
+                    <Image x:Name="imgOblozhka"
+                           Stretch="UniformToFill"
+                           RenderOptions.BitmapScalingMode="HighQuality"/>
+                </Border>
+
+                <StackPanel Grid.Column="2">
+
+                    <TextBlock x:Name="txtNazv"
+                               FontSize="26" FontWeight="Bold"
+                               Foreground="White"
+                               TextWrapping="Wrap"
+                               Margin="0,0,0,8"/>
+
+                    <TextBlock x:Name="txtAvtor"
+                               FontSize="15"
+                               Foreground="#A78BFA"
+                               Margin="0,0,0,8"/>
+
+                    <TextBlock x:Name="txtOtsenka"
+                               FontSize="18"
+                               Foreground="#FCD34D"
+                               Margin="0,0,0,12"/>
+
+                    <WrapPanel x:Name="panelZhanry" Margin="0,0,0,16"/>
+
+                    <TextBlock x:Name="txtOpis"
+                               FontSize="13"
+                               Foreground="#D1D5DB"
+                               TextWrapping="Wrap"
+                               Margin="0,0,0,20"/>
+
+                    <WrapPanel>
+                        <Button Content="📖 Читать"
+                                Style="{StaticResource BtnFiolet}"
+                                Margin="0,0,8,8"
+                                Click="btnChitat_Click"/>
+
+                        <Button Content="+ В список"
+                                Style="{StaticResource BtnSer}"
+                                Margin="0,0,8,8"
+                                Click="btnVSpisok_Click"/>
+
+                        <Button Content="⚠ Жалоба на книгу"
+                                Style="{StaticResource BtnKrasn}"
+                                Margin="0,0,8,8"
+                                Click="btnZhalobaKniga_Click"/>
+
+                        <Button Content="⚠ Жалоба на автора"
+                                Style="{StaticResource BtnKrasn}"
+                                Margin="0,0,8,8"
+                                Click="btnZhalobaAvtor_Click"/>
+
+                        <Button x:Name="btnZamorozitKnigu"
+                                Content="❄ Заморозить книгу"
+                                Style="{StaticResource BtnKrasn}"
+                                Visibility="Collapsed"
+                                Margin="0,0,8,8"
+                                Click="btnZamorozitKnigu_Click"/>
+                    </WrapPanel>
+
+                </StackPanel>
+            </Grid>
+
+            <Separator Background="#3D3D5F" Margin="0,0,0,24"/>
+
+            <StackPanel x:Name="panelFormOtzyv" Margin="0,0,0,24">
+                <TextBlock Text="Оставить отзыв"
+                           FontSize="18" FontWeight="SemiBold"
+                           Foreground="#C4B5FD" Margin="0,0,0,12"/>
+
+                <TextBox x:Name="txtOtzyvTekst"
+                         Background="#2D2D3F" Foreground="White"
+                         BorderBrush="#7C3AED" FontSize="13"
+                         Padding="8" CaretBrush="White"
+                         Height="80" TextWrapping="Wrap"
+                         AcceptsReturn="True"
+                         Margin="0,0,0,10"
+                         Text="Напишите ваш отзыв..."/>
+
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <TextBlock Text="Оценка (1-10):"
+                               Foreground="White" FontSize="13"
+                               VerticalAlignment="Center"
+                               Margin="0,0,10,0"/>
+                    <ComboBox x:Name="cbOtsenka" Width="70"
+                              Background="#2D2D3F" Foreground="White"
+                              BorderBrush="#7C3AED" FontSize="13"/>
+                </StackPanel>
+
+                <Button Content="Отправить отзыв" HorizontalAlignment="Left"
+                        Style="{StaticResource BtnFiolet}"
+                        Click="btnOtpravitOtzyv_Click"/>
+            </StackPanel>
+
+            <Separator Background="#3D3D5F" Margin="0,0,0,24"/>
+
+            <TextBlock Text="Отзывы читателей"
+                       FontSize="18" FontWeight="SemiBold"
+                       Foreground="#C4B5FD" Margin="0,0,0,16"/>
+
+            <StackPanel x:Name="panelOtzyvy"/>
+
+        </StackPanel>
+    </ScrollViewer>
 </Page>
