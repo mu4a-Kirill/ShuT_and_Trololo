@@ -162,6 +162,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\AdminDB.cs" />
     <Compile Include="Data\AvtorDB.cs" />
     <Compile Include="Data\KnigaDB.cs" />
     <Compile Include="Data\OtzyvDB.cs" />
@@ -195,8 +196,14 @@
     <Compile Include="Windows\OknoRedaktirovaniyaKnigi.xaml.cs">
       <DependentUpon>OknoRedaktirovaniyaKnigi.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\OknoSmenyParola.xaml.cs">
+      <DependentUpon>OknoSmenyParola.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\OknoVhoda.xaml.cs">
       <DependentUpon>OknoVhoda.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\OknoVyboraRoli.xaml.cs">
+      <DependentUpon>OknoVyboraRoli.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\OknoVyboraSpiskaWindow.xaml.cs">
       <DependentUpon>OknoVyboraSpiskaWindow.xaml</DependentUpon>
@@ -255,7 +262,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\OknoSmenyParola.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\OknoVhoda.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\OknoVyboraRoli.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
