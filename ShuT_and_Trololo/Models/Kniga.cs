@@ -14,7 +14,8 @@ namespace ShuT_and_Trololo.Models
         public string CoverPath { get; set; }
         public string Content { get; set; }
         public int AuthorId { get; set; }
-        public string AutorImya { get; set; }   
-        public double SrednyayaOtsenka { get; set; } 
+        public string AutorImya { get; set; }
+        public bool IsFrozen { get; set; }       
+        public double SrednyayaOtsenka { get; set; }
     }
 }

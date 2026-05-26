@@ -162,11 +162,33 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\KnigaDB.cs" />
+    <Compile Include="Pages\StranitsaAdmina.xaml.cs">
+      <DependentUpon>StranitsaAdmina.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StranitsaAvtora.xaml.cs">
+      <DependentUpon>StranitsaAvtora.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StranitsaKataloga.xaml.cs">
+      <DependentUpon>StranitsaKataloga.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StranitsaKnigi.xaml.cs">
+      <DependentUpon>StranitsaKnigi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StranitsaProfily.xaml.cs">
+      <DependentUpon>StranitsaProfily.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StranitsaSpiskov.xaml.cs">
+      <DependentUpon>StranitsaSpiskov.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\GlavnoeOkno.xaml.cs">
       <DependentUpon>GlavnoeOkno.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\OknoVhoda.xaml.cs">
       <DependentUpon>OknoVhoda.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\OknoVyboraSpiskaWindow.xaml.cs">
+      <DependentUpon>OknoVyboraSpiskaWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -183,11 +205,39 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\StranitsaAdmina.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\StranitsaAvtora.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\StranitsaKataloga.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\StranitsaKnigi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\StranitsaProfily.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\StranitsaSpiskov.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\GlavnoeOkno.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\OknoVhoda.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\OknoVyboraSpiskaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -226,7 +276,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Pages\" />
     <Folder Include="Resources\Covers\" />
   </ItemGroup>
   <ItemGroup>
